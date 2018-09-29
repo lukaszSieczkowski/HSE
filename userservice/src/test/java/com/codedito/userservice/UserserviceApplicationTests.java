@@ -1,4 +1,4 @@
-package com.example.userservice;
+package com.codedito.userservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
