@@ -4,12 +4,6 @@ jdk:
 sudo: false
 install: true
 addons:
- apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
   sonarcloud:
     organization: "lukaszsieczkowski-github"
     token:
@@ -27,4 +21,5 @@ notifications:
   on_start: always
   on_success: always
   on_failure: always
- 
+services:
+  - mysql
