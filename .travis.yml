@@ -7,12 +7,7 @@ install: true
 services:
   - mysql
 addons:
-  apt:
-    packages:
-     - mysql-server-5.6
-     - mysql-client-core-5.6
-     - mysql-client-5.6
-   sonarcloud:
+  sonarcloud:
      organization: "lukaszsieczkowski-github"
      token:
        secure: "647a6b4cf6ef8aac447f7a60f0112bd6fcc6ca52"
