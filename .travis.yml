@@ -1,9 +1,17 @@
 language: java
 jdk:
   - oraclejdk8
-sudo: false
+sudo: required
+dist: trusty
 install: true
+services:
+  - mysql
 addons:
+ apt:
+  packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
   sonarcloud:
     organization: "lukaszsieczkowski-github"
     token:
@@ -21,5 +29,7 @@ notifications:
   on_start: always
   on_success: always
   on_failure: always
-services:
-  - mysql
+before_script:
+- mysql -u root -e 'CREATE DATABASE items;'
+- mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
+- mysql -u root -e "GRANT ALL ON items.* TO 'makler'@'localhost';"
