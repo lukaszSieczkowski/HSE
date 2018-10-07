@@ -1,34 +1,27 @@
 language: java
-
 jdk:
   - oraclejdk8
-
 sudo: required
-
-dist: trusty
-
+dist: false
 install: true
-
 services:
   - mysql
-
 addons:
-  sonarcloud:
-    organization: "lukaszsieczkowski-github"
-    token:
-      secure: "647a6b4cf6ef8aac447f7a60f0112bd6fcc6ca52"
-script:
+  apt:
+    packages:
+     - mysql-server-5.6
+     - mysql-client-core-5.6
+     - mysql-client-5.6
+   sonarcloud:
+     organization: "lukaszsieczkowski-github"
+     token:
+       secure: "647a6b4cf6ef8aac447f7a60f0112bd6fcc6ca52"
+ script:
       - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
- apt:
-  packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
-
 notifications:
   slack:
     rooms:
