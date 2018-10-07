@@ -2,10 +2,7 @@ language: java
 jdk:
   - oraclejdk8
 sudo: required
-dist: false
 install: true
-services:
-  - mysql
 addons:
   sonarcloud:
      organization: "lukaszsieczkowski-github"
