@@ -13,6 +13,11 @@ services:
   - mysql
 
 addons:
+  sonarcloud:
+    organization: "lukaszsieczkowski-github"
+    token:
+      secure: "647a6b4cf6ef8aac447f7a60f0112bd6fcc6ca52"
+
  apt:
   packages:
     - mysql-server-5.6
@@ -30,3 +35,5 @@ notifications:
   on_start: always
   on_success: always
   on_failure: always
+script:
+      - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
