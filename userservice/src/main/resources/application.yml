@@ -9,7 +9,7 @@ spring:
     database:
       driverClassName: "com.mysql.jdbc.Driver"
     datasource:
-      url: "jdbc:mysql://localhost:3306/items"
+      url: "jdbc:mysql://localhost:3306/users"
       username: "root"
       password: "admin"
       testWhileIdle: "true"
