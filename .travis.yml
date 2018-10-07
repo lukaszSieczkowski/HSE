@@ -29,6 +29,3 @@ notifications:
   on_start: always
   on_success: always
   on_failure: always
-before_script:
-- mysql -u root -e 'CREATE DATABASE items;'
-"
