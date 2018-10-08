@@ -14,9 +14,6 @@ spring:
       password: "admin"
       testWhileIdle: "true"
       validationQuery: "SELECT 1"
-    batch:
-      job:
-        enabled: false
 
 security:
   basic:
