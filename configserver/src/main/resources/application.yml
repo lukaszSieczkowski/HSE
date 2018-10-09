@@ -8,7 +8,7 @@ spring:
         git:
           uri: https://github.com/lukaszSieczkowski/config-repo
           username: lukaszSieczkowski
-          password: password123
+          password: tadeusz
           search-paths: userservice, itemservice
         encrypt:
 enabled: false
