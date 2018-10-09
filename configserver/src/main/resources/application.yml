@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lukaszSieczkowski/config-repo
+          username: lukaszSieczkowski
+          password: password123
+          search-paths: userservice, itemservice
+        encrypt:
+enabled: false
