@@ -1,10 +1,13 @@
 package com.codedito.itemservice.model;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_role")
+@JsonDeserialize
 public class UserRole {
 
     @Id

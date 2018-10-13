@@ -1,5 +1,6 @@
 package com.codedito.itemservice.service.impl;
 
+import com.codedito.itemservice.client.UserFeighClient;
 import com.codedito.itemservice.model.Item;
 import com.codedito.itemservice.model.User;
 import com.codedito.itemservice.repository.ItemRepository;
@@ -24,6 +25,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserFeighClient userFeighClient;
 
     @Override
     public Item addItemByUser(final Item item, final String username) {
@@ -85,6 +89,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public User getUserByUsername(final String username) {
-        return userService.findByUsername(username);
+        return userFeighClient.getUserByUsername(username);
     }
 }

@@ -29,7 +29,7 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
-    private Set<UserRole> userRoles = new HashSet<>();
+    private Set<UserRole> userRoles;
 
     public Long getId() {
         return id;
@@ -99,6 +99,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        userRoles = new HashSet<>();
         final Set<GrantedAuthority> authorities = new HashSet<>();
         userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
 
