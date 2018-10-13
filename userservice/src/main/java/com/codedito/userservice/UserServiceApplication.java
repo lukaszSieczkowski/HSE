@@ -7,15 +7,15 @@ import com.codedito.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 import java.util.HashSet;
 import java.util.Set;
 
 
 @SpringBootApplication
-@EnableAutoConfiguration
+@EnableEurekaClient
 public class UserServiceApplication implements CommandLineRunner {
     @Autowired
     private UserService userService;
