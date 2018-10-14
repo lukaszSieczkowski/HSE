@@ -7,6 +7,7 @@ import com.codedito.itemservice.model.User;
 import com.codedito.itemservice.repository.ItemRepository;
 import com.codedito.itemservice.service.ItemService;
 import com.codedito.itemservice.service.UserService;
+import com.codedito.itemservice.util.UserContextHolder;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
@@ -103,6 +104,7 @@ public class ItemServiceImpl implements ItemService {
     )
     public User getUserByUsername(final String username) {
         randomlyRunLong();
+        LOG.debug("ItemService.getUserByUsername Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         return userFeignClient.getUserByUsername(username);
     }
 

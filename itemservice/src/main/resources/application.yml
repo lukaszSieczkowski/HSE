@@ -21,3 +21,9 @@
 #
 #server:
 #  port: 8082
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.com: WARN
+    com.codedito.itemservice: DEBUG

@@ -4,6 +4,9 @@ import com.codedito.itemservice.model.Item;
 import com.codedito.itemservice.model.User;
 import com.codedito.itemservice.service.ItemService;
 import com.codedito.itemservice.service.UserService;
+import com.codedito.itemservice.util.UserContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/item")
 public class ItemController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ItemController.class);
 
     @Autowired
     private ItemService itemService;
@@ -57,6 +62,7 @@ public class ItemController {
 
     @RequestMapping("/user/{username}")
     public User getUserByUsername(@PathVariable final String username) {
+        logger.debug("ItemServiceController Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         return itemService.getUserByUsername(username);
     }
 }
