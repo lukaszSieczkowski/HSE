@@ -103,7 +103,7 @@ public class ItemServiceImpl implements ItemService {
             }
     )
     public User getUserByUsername(final String username) {
-        randomlyRunLong();
+        //    randomlyRunLong();
         LOG.debug("ItemService.getUserByUsername Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         return userFeignClient.getUserByUsername(username);
     }
